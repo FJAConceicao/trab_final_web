@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 include("conexao.php");
 
 $sql = "SELECT * from candidatos";
@@ -7,28 +7,13 @@ $sql = "SELECT * from candidatos";
 $result = $mysqli->query($sql);
 
 if($result->num_rows > 0) {
+  $output = array();
+
   while($row = $result->fetch_assoc()) {
-    echo $row["name"] . "<br>";
+     
+    $output[] = array( 'idcandidatos' => $row['idcandidatos'], 'quantidade_votos' => $row['quantidade_votos'], 'numero_candidato' => $row['numero_candidato'], 'nome' => $row['nome'], 'partido' => $row['partido'], 'foto' => $row['foto'], 'tipo' => $row['tipo'] );
   }
-}
 
-echo "dasdas";
-
-if(isset($_GET['show'])){
-    if($_GET['show'] == 'all'){
-          $content = file_get_contents("db.json",true);
-          echo $content;
-    }else{
-          $content = file_get_contents("db.json",true);
-          $aContent = json_decode($content);
-          for ($i=0; $i < count($aContent); $i++) {
-                 if($aContent[$i]->id == intval($_GET['show'])){
-                        echo json_encode($aContent[$i]);
-                 }
-          }
-          if(!array_key_exists(intval($_GET['show']), $aContent)){
-                 echo '[]';
-          }
-    }
+  echo json_encode($output, JSON_UNESCAPED_UNICODE);
 }
 ?>
