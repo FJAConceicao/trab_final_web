@@ -1,9 +1,12 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+
 $hostname = "localhost";
 $banco = "web";
-$username = "root"; //"cakephp";
-$password = "rooT13_mysql"; //"Cake#123";
+$username = "teste"; //"cakephp";
+$password = "teste1234"; //"Cake#123";
 
 $mysqli =  new \MySQLi($hostname, $username, $password, $banco);
 
