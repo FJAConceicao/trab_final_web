@@ -4,6 +4,7 @@
     require_once '../vendor/autoload.php';
 
     // api/users/1
+    var_dump($_GET['url']);
     if ($_GET['url']) {
         $url = explode('/', $_GET['url']);
 

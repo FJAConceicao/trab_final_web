@@ -3,7 +3,7 @@
 
     class User
     {
-        private static $table = 'user';
+        private static $table = 'candidatos';
 
         public static function select(int $id) {
             $connPdo = new \PDO(DBDRIVE.': host='.DBHOST.'; dbname='.DBNAME, DBUSER, DBPASS);

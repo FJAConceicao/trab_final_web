@@ -3,6 +3,6 @@
     //Mysql
     const DBDRIVE = 'mysql';
     const DBHOST = 'localhost';
-    const DBNAME = 'serie_login';
-    const DBUSER = 'root';
+    const DBNAME = 'web';
+    const DBUSER = 'rooT13_mysql';
     const DBPASS = '';
